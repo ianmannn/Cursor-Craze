@@ -1,9 +1,8 @@
-class Items {
+class Hazard {
   constructor(el) {
     this.node = document.createElement('img');
-    this.node.setAttribute('id', 'item');
-    let itemImage = globalItemImg; // Ensure globalItemImg is defined globally
-    this.node.setAttribute('src', itemImage);
+    this.node.setAttribute('id', 'hazard');
+    this.node.setAttribute('src', 'src/assets/bombhazard.png');
 
     el.appendChild(this.node);
 
@@ -12,19 +11,18 @@ class Items {
     this.node.style.top = '0px';
     this.node.style.left = `${Math.floor(Math.random() * 1000) + 500}px`; // Position item randomly horizontally
 
-    this.boundMove = this.move.bind(this);
-
     this.node.addEventListener('mouseover', this.handleCollision.bind(this));
 
-    this.timeout = setTimeout(this.boundMove, this.SPEED);
+    this.boundMove = this.move.bind(this);
+
+    setTimeout(this.boundMove, this.SPEED);
   }
 
   move() {
     if (this.node !== null) {
       let topPosition = Number(this.node.style.top.replace('px', ''));
       let leftPosition = Number(this.node.style.left.replace('px', ''));
-
-      const moveArray = [50, 100, 150];
+      const moveArray = [75, 100, 110];
       let index = Math.floor(Math.random() * 2);
 
       topPosition += moveArray[index];
@@ -33,12 +31,7 @@ class Items {
       if (topPosition < window.innerHeight) {
         this.timeout = setTimeout(this.boundMove, this.SPEED); // Continue moving if not at the bottom
       } else {
-        this.removeNode();
-        const score = document.getElementById('increasescore');
-        globalScore -= 1;
-        let scoreTrack = globalScore;
-        score.innerText = `Your Score: ${scoreTrack}`;
-        // Remove the node when it reaches the bottom
+        this.removeNode(); // Remove the node when it reaches the bottom
       }
     }
   }
@@ -47,7 +40,7 @@ class Items {
     const clickSound = document.getElementById('click-sound');
 
     console.log('collide');
-    globalScore += 10;
+    globalScore -= 1;
     console.log(globalScore);
 
     const score = document.getElementById('increasescore');
@@ -58,6 +51,7 @@ class Items {
 
     this.removeNode();
     clickSound.play();
+    endGame(); // End the game if the player touches a bomb
   }
 
   removeNode() {

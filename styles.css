@@ -31,7 +31,16 @@ body {
   top: 0;
   left: 0;
   z-index: 5; /* Ensure the item is in front of the background but behind the cursor */
-  pointer-events: none; /* Make the item non-interactive */
+  /* Make the item non-interactive */
+  pointer-events: auto;
+}
+
+#hazard {
+  width: 75px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 5; /* Ensure the item is in front of the background but behind the cursor */
 }
 
 #theme-options {
@@ -51,5 +60,14 @@ body {
   position: relative;
   top: 0;
   left: 7px;
+  /* pointer-events: none; Make the cursor image non-interactive */
+}
+
+#score {
+  color: white;
+  font-size: large;
+  position: relative;
+  top: 0;
+  left: 15px;
   /* pointer-events: none; Make the cursor image non-interactive */
 }
