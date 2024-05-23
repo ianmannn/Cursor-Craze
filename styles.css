@@ -1,0 +1,55 @@
+#screen {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html,
+body {
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+#cursor-container {
+  position: absolute;
+  pointer-events: none; /* Make the cursor container non-interactive */
+  z-index: 10; /* Ensure the cursor is on top */
+}
+
+#cursor-image {
+  width: 90px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  pointer-events: none; /* Make the cursor image non-interactive */
+}
+
+#item {
+  width: 75px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 5; /* Ensure the item is in front of the background but behind the cursor */
+  pointer-events: none; /* Make the item non-interactive */
+}
+
+#theme-options {
+  padding: 5px;
+  width: 50px;
+  position: relative;
+  top: 0;
+  left: 10px;
+  -ms-text-justify: distribute-all-lines;
+  text-justify: distribute-all-lines;
+  /* pointer-events: none; Make the cursor image non-interactive */
+}
+
+#start-game-button {
+  width: 100px;
+  height: 50px;
+  position: relative;
+  top: 0;
+  left: 7px;
+  /* pointer-events: none; Make the cursor image non-interactive */
+}

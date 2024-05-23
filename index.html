@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Cursor Craze</title>
+    <link rel="stylesheet" href="./styles.css" />
+    <style>
+      body {
+        background-color: rgb(181, 71, 181);
+        cursor: none; /* Hide the default cursor */
+      }
+      #controls {
+        margin: 10px;
+      }
+      #play-music-button {
+        display: block;
+        margin: 10px 0;
+      }
+    </style>
+  </head>
+  <body>
+    <audio id="background-music" loop>
+      <source
+        src="src\assets\Zero-Gravity Love (mp3cut.net).mp3"
+        type="audio/mpeg"
+      />
+    </audio>
+    <div id="board"></div>
+    <div id="start-game-button">
+      <button id="start-game-button" onclick="startGame()">Start Game</button>
+    </div>
+
+    <div id="cursor-container">
+      <img id="cursor-image" src="src/assets/catcursor.png" />
+    </div>
+
+    <div id="theme-options">
+      <button onclick="changeTheme('src/assets/catcursor.png')">CAT</button>
+      <button onclick="changeTheme('src/assets/buffdog.png')">DOG</button>
+      <button onclick="changeTheme('src/assets/puffle.png')">PUFFLE</button>
+      <button onclick="changeTheme('src/assets/spikachu.png')">PIKA</button>
+    </div>
+
+    <!-- <div id="start-game-button">
+      <button onclick="startGame()">START GAME</button>
+    </div> -->
+    <script src="src/items.js"></script>
+    <script src="src/main.js"></script>
+  </body>
+</html>
+
+  </body>
+</html>
